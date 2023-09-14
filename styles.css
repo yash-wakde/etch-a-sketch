@@ -1,0 +1,15 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(16,1fr);
+    gap: 2px;
+    width: 400px; 
+    height: 400px;
+    background-color: #ddd; 
+}
+
+
+
+.grid-cell:hover{
+    background-color: black;
+}
