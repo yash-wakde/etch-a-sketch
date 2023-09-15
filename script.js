@@ -9,3 +9,22 @@ function createGrid(rows, columns){
 }
 
 createGrid (16,16)
+
+function addHoverEffect(){
+    const gridCells = document.querySelectorAll('.grid-cell')
+
+    gridCells.forEach((cell) => {
+        cell.addEventListener('mouseenter', () =>{
+            cell.style.backgroundColor = 'black'
+        })
+    })
+
+    gridCells.forEach((cell) => {
+        cell.addEventListener('mouseleave', () =>{
+            cell.style.backgroundColor = 'white'
+        })
+    })
+}
+
+addHoverEffect()
+
