@@ -9,11 +9,10 @@ function createGrid(size){
     }
 }
 
-createGrid (32)
+createGrid(16)
 
 function addHoverEffect(){
     const gridCells = document.querySelectorAll('.grid-cell')
-
     gridCells.forEach((cell) => {
         cell.addEventListener('mousedown', () =>{
             mouseHeld = true
@@ -34,7 +33,6 @@ function addHoverEffect(){
         })
     })
 }
-
 
 addHoverEffect()
 
