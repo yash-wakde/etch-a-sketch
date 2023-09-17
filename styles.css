@@ -1,13 +1,27 @@
-body{
-    background-color: whitesmoke;
+*{
+    margin: 0px;
+    padding: 0px;
 }
 
+body{
+    background-color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+}
+
+p{
+    font-size: 64px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 5px 5px #eddcd2;
+    padding: 25px;
+}
 
 .grid-container {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(32, 1fr);
-    grid-template-rows: repeat(32, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
     width: 500px;
     height: 500px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -24,4 +38,8 @@ body{
 .grid-center{
     display: flex;
     justify-content: center;
+}
+
+.grid-cell:hover{
+    background-color: gray;
 }
