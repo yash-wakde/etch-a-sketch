@@ -1,7 +1,12 @@
 const gridContainer = document.querySelector('.grid-container')
+const slider = document.querySelector('.slider')
+const inputValue = document.querySelector('.input-value')
 let mouseHeld = false
 
 function createGrid(size){
+    gridContainer.innerHTML = ''
+    gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`
     for(let i=0; i<=size*size; i++){
         const gridCell = document.createElement('div')
         gridCell.classList.add('grid-cell')
@@ -13,16 +18,12 @@ createGrid(16)
 
 function addHoverEffect(){
     const gridCells = document.querySelectorAll('.grid-cell')
-    gridCells.forEach((cell) => {
-        cell.addEventListener('mousedown', () =>{
-            mouseHeld = true
-        })
+    gridContainer.addEventListener('mousedown', () => {
+        mouseHeld = true
     })
 
-    gridCells.forEach((cell) => {
-        cell.addEventListener('mouseup', () =>{
-            mouseHeld = false
-        })
+    gridContainer.addEventListener('mouseup', () => {
+        mouseHeld = false
     })
 
     gridCells.forEach((cell) => {
@@ -35,4 +36,10 @@ function addHoverEffect(){
 }
 
 addHoverEffect()
+
+inputValue.addEventListener('input', () => {
+    const newSize = parseInt(inputValue.value)
+    createGrid(newSize)
+    addHoverEffect()
+});
 

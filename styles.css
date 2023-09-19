@@ -8,7 +8,7 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
-p{
+h1{
     font-size: 64px;
     color: #333;
     font-weight: bold;
@@ -20,8 +20,6 @@ p{
 .grid-container {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
     width: 500px;
     height: 500px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
