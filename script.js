@@ -56,7 +56,6 @@ function addHoverEffect(){
     })
 }
 
-
 addHoverEffect()
 
 inputValue.addEventListener('input', () => {
@@ -71,8 +70,6 @@ clearButton.addEventListener('click', () => {
         cell.style.backgroundColor = ''
     })
 })
-
-
 
 drawButton.addEventListener('click', () => {
     drawingMode = true
