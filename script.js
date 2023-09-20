@@ -1,6 +1,9 @@
 const gridContainer = document.querySelector('.grid-container')
-const slider = document.querySelector('.slider')
 const inputValue = document.querySelector('.input-value')
+const colorPicker = document.querySelector('.color-picker')
+const clearButton = document.querySelector('.clear-button')
+const eraserButton = document.querySelector('.eraser-button')
+let eraserMode = false
 let mouseHeld = false
 
 function createGrid(size){
@@ -24,12 +27,17 @@ function addHoverEffect(){
 
     gridContainer.addEventListener('mouseup', () => {
         mouseHeld = false
+        eraserMode = false
     })
 
     gridCells.forEach((cell) => {
         cell.addEventListener('mousemove', () =>{
-            if(mouseHeld == true){
-                cell.style.backgroundColor = 'black'
+            if (eraserMode){
+                cell.style.backgroundColor = 'white';
+            }
+            else if(mouseHeld == true){
+                selectedColor = colorPicker.value
+                cell.style.backgroundColor = selectedColor
             }
         })
     })
@@ -41,5 +49,15 @@ inputValue.addEventListener('input', () => {
     const newSize = parseInt(inputValue.value)
     createGrid(newSize)
     addHoverEffect()
-});
+})
 
+clearButton.addEventListener('click', () => {
+    const gridCells = document.querySelectorAll('.grid-cell')
+    gridCells.forEach((cell) => {
+        cell.style.backgroundColor = ''
+    })
+})
+
+eraserButton.addEventListener('click', () =>{
+    eraserMode = !eraserMode
+})
