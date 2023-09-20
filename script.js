@@ -2,9 +2,11 @@ const gridContainer = document.querySelector('.grid-container')
 const inputValue = document.querySelector('.input-value')
 const colorPicker = document.querySelector('.color-picker')
 const clearButton = document.querySelector('.clear-button')
+const drawButton = document.querySelector('.draw-button')
 const eraserButton = document.querySelector('.eraser-button')
 let eraserMode = false
 let mouseHeld = false
+let drawingMode = true
 
 function createGrid(size){
     gridContainer.innerHTML = ''
@@ -31,17 +33,29 @@ function addHoverEffect(){
     })
 
     gridCells.forEach((cell) => {
-        cell.addEventListener('mousemove', () =>{
-            if (eraserMode){
-                cell.style.backgroundColor = 'white';
-            }
-            else if(mouseHeld == true){
-                selectedColor = colorPicker.value
+        cell.addEventListener('mousedown', () => {
+            if (drawingMode) {
+                const selectedColor = colorPicker.value
                 cell.style.backgroundColor = selectedColor
+            } else {
+                eraserMode = true
+                cell.style.backgroundColor = 'white'
+            }
+        })
+
+        cell.addEventListener('mousemove', () => {
+            if (mouseHeld) {
+                if (drawingMode) {
+                    const selectedColor = colorPicker.value
+                    cell.style.backgroundColor = selectedColor
+                } else if (eraserMode) {
+                    cell.style.backgroundColor = ''
+                }
             }
         })
     })
 }
+
 
 addHoverEffect()
 
@@ -58,6 +72,12 @@ clearButton.addEventListener('click', () => {
     })
 })
 
-eraserButton.addEventListener('click', () =>{
-    eraserMode = !eraserMode
+
+
+drawButton.addEventListener('click', () => {
+    drawingMode = true
+})
+
+eraserButton.addEventListener('click', () => {
+    drawingMode = false
 })
