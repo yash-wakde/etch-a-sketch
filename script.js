@@ -8,6 +8,16 @@ let eraserMode = false
 let mouseHeld = false
 let drawingMode = true
 
+drawButton.addEventListener('click', () => {
+    drawingMode = true
+    eraserMode = false
+})
+
+eraserButton.addEventListener('click', () => {
+    drawingMode = false
+    eraserMode = true
+})
+
 function createGrid(size){
     gridContainer.innerHTML = ''
     gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`
@@ -24,35 +34,37 @@ createGrid(16)
 function addHoverEffect(){
     const gridCells = document.querySelectorAll('.grid-cell')
     gridContainer.addEventListener('mousedown', () => {
-        mouseHeld = true
-    })
+        mouseHeld = true})
 
     gridContainer.addEventListener('mouseup', () => {
         mouseHeld = false
-        eraserMode = false
-    })
+        eraserMode = false })
 
     gridCells.forEach((cell) => {
-        cell.addEventListener('mousedown', () => {
-            if (drawingMode) {
-                const selectedColor = colorPicker.value
-                cell.style.backgroundColor = selectedColor
-            } else {
-                eraserMode = true
-                cell.style.backgroundColor = 'white'
-            }
+    cell.addEventListener('mousedown', () => {
+        if (drawingMode) {
+            const selectedColor = colorPicker.value
+            cell.style.backgroundColor = selectedColor} 
+        else {
+            eraserMode = true
+            cell.style.backgroundColor = 'white'}
         })
 
-        cell.addEventListener('mousemove', () => {
-            if (mouseHeld) {
-                if (drawingMode) {
-                    const selectedColor = colorPicker.value
-                    cell.style.backgroundColor = selectedColor
-                } else if (eraserMode) {
-                    cell.style.backgroundColor = ''
-                }
-            }
+    cell.addEventListener('mousemove', () => {
+        if (mouseHeld) {
+            if (drawingMode) {
+                const selectedColor = colorPicker.value
+                cell.style.backgroundColor = selectedColor} 
+            else if (eraserMode) {
+                cell.style.backgroundColor = '' }}                 
         })
+
+    cell.addEventListener('mousedown', (e) => {
+        e.preventDefault()
+        })
+    cell.addEventListener('mousemove', (e) => {
+        e.preventDefault()
+        })    
     })
 }
 
@@ -69,12 +81,4 @@ clearButton.addEventListener('click', () => {
     gridCells.forEach((cell) => {
         cell.style.backgroundColor = ''
     })
-})
-
-drawButton.addEventListener('click', () => {
-    drawingMode = true
-})
-
-eraserButton.addEventListener('click', () => {
-    drawingMode = false
 })
