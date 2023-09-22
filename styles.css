@@ -6,23 +6,35 @@
 body{
     background-color: whitesmoke;
     font-family: 'Roboto', sans-serif;
+
 }
 
+
 h1{
-    font-size: 64px;
+    font-size: 48px;
     color: #333;
     font-weight: bold;
-    text-align: center;
-    text-shadow: 5px 5px #eddcd2;
+    /* text-shadow: 5px 5px #eddcd2; */
     padding: 25px;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.tools{
+    display: flex;
+    flex-direction: column;
 }
 
 .grid-container {
     display: grid;
     justify-content: center;
-    width: 500px;
-    height: 500px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 512px;
+    height: 512px;
+    
 }
 
 .grid-cell {
@@ -31,6 +43,7 @@ h1{
     background-color: white;
     padding: 0px;
     margin: 0px;
+    border: 0.01rem solid rgb(209, 202, 202)
 }
 
 .grid-center{
