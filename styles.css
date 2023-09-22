@@ -49,4 +49,8 @@ h1{
     align-items: center;
 }
 
+.tools{
+    display: flex;
+    flex-direction: column;
+}
 
