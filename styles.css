@@ -57,6 +57,10 @@ h1{
     margin-right: 50px;
 }
 
+.color-control{
+    text-align: center;
+}
+
 input[type="color"] {
 	width: 75px;
 	height: 75px;
