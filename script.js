@@ -126,6 +126,7 @@ inputValue.addEventListener('input', () => {
     const newSize = parseInt(inputValue.value)
     createGrid(newSize)
     addHoverEffect()
+    document.getElementById('gridSizeValue').textContent = `${newSize}x${newSize}`
 })
 
 clearButton.addEventListener('click', () => {
