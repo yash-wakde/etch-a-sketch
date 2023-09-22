@@ -9,7 +9,7 @@ body{
 
 }
 
-h1{
+h2{
     font-size: 48px;
     color: #333;
     font-weight: bold;
@@ -106,10 +106,9 @@ button:hover{
     background: #ededed; 
     border-radius: 5px; 
     border: 1px solid #333;
-  }
-  
- 
-  .input-value::-webkit-slider-thumb {
+}
+
+.input-value::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px; 
@@ -118,9 +117,9 @@ button:hover{
     border: 2px solid #333; 
     border-radius: 50%; 
     cursor: pointer; 
-  }
+}
   
-  .input-value::-moz-range-thumb {
+.input-value::-moz-range-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px; 
@@ -129,5 +128,5 @@ button:hover{
     border: 2px solid #333; 
     border-radius: 50%; 
     cursor: pointer; 
-  }
+}
   

@@ -6,10 +6,10 @@ const drawButton = document.querySelector('.draw-button')
 const eraserButton = document.querySelector('.eraser-button')
 const randomColorButton = document.querySelector('.random-color-button')
 const buttons = [drawButton, eraserButton, randomColorButton];
-let eraserMode = false
 let mouseHeld = false
 let drawingMode = true
 let randomColorMode = false
+let eraserMode = false
 
 setTimeout(() => {
     drawButton.click();
